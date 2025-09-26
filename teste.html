@@ -1,0 +1,136 @@
+<iframe title="ProdutividadeVistoriador" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiZDU4YjgwYTktYzAwMS00M2JiLTlkMjMtNTBmOTE3OWMxYTMyIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9" frameborder="0" allowFullScreen="true"></iframe>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard em Tela Cheia</title>
+    <style>
+      /* Zera margens e garante 100% de altura */
+      html, body { height: 100%; margin: 0; padding: 0; }
+
+      /* Container raiz ocupa a viewport inteira e evita rolagem dupla */
+      #app {
+        position: fixed; /* evita que barras do body causem rolagem */
+        inset: 0;        /* top/right/bottom/left = 0 */
+        display: flex;
+        flex-direction: column;
+        background: #0b0f1a; /* cor de fundo neutra enquanto carrega */
+      }
+
+      /* Barra superior opcional (pode remover se não precisar) */
+      .topbar {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .5rem .75rem;
+        color: #e5e7eb;
+        background: rgba(255,255,255,0.04);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+      }
+      .topbar h1 { font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; margin: 0; opacity: .9; }
+      .spacer { flex: 1; }
+      .btn {
+        appearance: none; border: 1px solid rgba(255,255,255,.2);
+        background: rgba(255,255,255,.06); color: #e5e7eb;
+        border-radius: 10px; padding: .45rem .7rem; cursor: pointer;
+      }
+      .btn:hover { background: rgba(255,255,255,.12); }
+
+      /* Área do dashboard cresce para ocupar o restante da tela */
+      .stage {
+        flex: 1; /* ocupa todo o espaço abaixo da topbar */
+        min-height: 0; /* importante para o iframe calcular 100% */
+        position: relative;
+      }
+
+      /* Iframe totalmente fluido (100% largura/altura) */
+      .stage iframe, .stage .pbi-embed {
+        position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+        background: #0b0f1a;
+      }
+
+      /* Suporte a áreas seguras em iOS (Dynamic Island) */
+      @supports (padding: max(0px)) {
+        .topbar { padding-left: max(.75rem, env(safe-area-inset-left)); padding-right: max(.75rem, env(safe-area-inset-right)); }
+        #app { padding-bottom: env(safe-area-inset-bottom); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="topbar">
+        <h1>Meu Dashboard</h1>
+        <div class="spacer"></div>
+        <button class="btn" id="btnFull">Tela cheia</button>
+        <button class="btn" id="btnReload" title="Recarregar">⟲</button>
+      </div>
+
+      <div class="stage" id="stage">
+        <!-- OPÇÃO A) PUBLICAR NA WEB (iframe) -->
+        <!-- Substitua o src abaixo pelo link do seu dashboard publicado (Power BI, Looker, Metabase, etc). -->
+        <iframe id="dash" src="https://app.powerbi.com/view?r=eyJrIjoiZDU4YjgwYTktYzAwMS00M2JiLTlkMjMtNTBmOTE3OWMxYTMyIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9" allowfullscreen loading="eager"></iframe>
+
+        <!-- OPÇÃO B) Power BI com JavaScript SDK (descomente se quiser usar o SDK) -->
+        <!--
+        <div id="pbi" class="pbi-embed"></div>
+        <script src="https://aka.ms/powerbi-client/dist/powerbi.js"></script>
+        <script>
+          // Exemplo de embed via SDK mantendo 100% do espaço disponível:
+          // 1) Coloque seu embedUrl, accessToken e reportId.
+          const models = window['powerbi-client'].models;
+          const config = {
+            type: 'report',
+            id: 'SEU_REPORT_ID',
+            embedUrl: 'SEU_EMBED_URL',
+            accessToken: 'SEU_ACCESS_TOKEN',
+            tokenType: models.TokenType.Embed,
+            settings: {
+              panes: { filters: { visible: false }, pageNavigation: { visible: true } },
+              background: models.BackgroundType.Transparent
+            }
+          };
+          const container = document.getElementById('pbi');
+          powerbi.embed(container, config);
+        </script>
+        -->
+      </div>
+    </div>
+
+    <script>
+      // Botão de tela cheia com fallback
+      const btnFull = document.getElementById('btnFull');
+      const stage = document.getElementById('stage');
+      btnFull.addEventListener('click', async () => {
+        const el = stage; // coloca a área do dashboard em tela cheia
+        try {
+          if (!document.fullscreenElement) {
+            if (el.requestFullscreen) await el.requestFullscreen();
+            else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+          } else {
+            if (document.exitFullscreen) await document.exitFullscreen();
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+          }
+        } catch (e) { console.warn('Fullscreen não suportado:', e); }
+      });
+
+      // Recarregar o iframe rapidamente
+      document.getElementById('btnReload').addEventListener('click', () => {
+        const iframe = document.getElementById('dash');
+        iframe.src = iframe.src; // força reload
+      });
+
+      // Ajustes de viewport em alguns navegadores móveis
+      // (Opcional: mantém altura correta quando a barra do navegador aparece/desaparece)
+      const fixVH = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      };
+      fixVH();
+      window.addEventListener('resize', fixVH);
+    </script>
+  </body>
+</html>
