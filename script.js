@@ -31,7 +31,18 @@ const relatorios = [
     setor_nome: "Gerência de Vistoria",
     url: "https://app.powerbi.com/view?r=eyJrIjoiZDU4YjgwYTktYzAwMS00M2JiLTlkMjMtNTBmOTE3OWMxYTMyIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+   {
+    nome: "Situação das Agendas de Vistoria",
+    descricao: "Relatório mostrando a situação das agendas de vistoria, por sat e vistoriadores",
+    setor: "gerenciavistoria",
+    setor_nome: "Gerência de Vistoria",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiOWE1NThhMGUtNzVjMy00MmYxLWEyMjgtODIxODI3YTM5OGY0IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
   
+ 
+
+   
 ];
 
 function renderizarRelatorios(filtrados) {
