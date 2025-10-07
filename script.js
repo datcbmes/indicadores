@@ -47,6 +47,14 @@ const relatorios = [
     setor_nome: "Gerência de Vistoria",
     url: "https://app.powerbi.com/view?r=eyJrIjoiY2VmODIzMGQtMDk4YS00MTY1LTgxNWUtNDRlZDcxOWRhNWU5IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+  {
+    nome: "Atendimento Gerência Vistoria",
+    descricao: "Relatório mostrando os indicadores de produtividade do atendimento ao público externo, realizado pelo Setor de Gerência de Vistoria",
+    setor: "gerenciavistoria",
+    setor_nome: "Gerência de Vistoria",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiNjUwMTAyNGUtZmZiMC00MjE1LTlmNTctMmMyZWM4OGRmODNlIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
   
  
 
