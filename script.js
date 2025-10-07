@@ -39,6 +39,14 @@ const relatorios = [
     setor_nome: "Gerência de Vistoria",
     url: "https://app.powerbi.com/view?r=eyJrIjoiOWE1NThhMGUtNzVjMy00MmYxLWEyMjgtODIxODI3YTM5OGY0IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+   {
+    nome: "Tempo de Relato de Vistoria",
+    descricao: "Relatório mostrando o tempo médio de relato de vistoria, por sat e vistoriadores",
+    setor: "gerenciavistoria",
+    setor_nome: "Gerência de Vistoria",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiY2VmODIzMGQtMDk4YS00MTY1LTgxNWUtNDRlZDcxOWRhNWU5IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
   
  
 
