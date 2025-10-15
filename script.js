@@ -55,6 +55,14 @@ const relatorios = [
     setor_nome: "Gerência de Vistoria",
     url: "https://app.powerbi.com/view?r=eyJrIjoiNjUwMTAyNGUtZmZiMC00MjE1LTlmNTctMmMyZWM4OGRmODNlIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+  {
+    nome: "Perícia de Incêndio Visão Geral",
+    descricao: "Relatório mostrando uma visão geral dos registros do incêndio por ano, trimestre, mês, tipo de evento e moticio de acionamento",
+    setor: "periciaincendio",
+    setor_nome: "Perícia de Incêndio",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiM2FiMWIxMTMtYzIzOS00YTdiLTg0ZGItYzExNTBkYjYzZWU2IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
   
  
 
