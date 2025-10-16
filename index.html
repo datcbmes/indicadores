@@ -1,55 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plataforma de Indicadores - CAT</title>
+  <title>Painel de Relatórios — CAT/CBMES</title>
+  <meta name="theme-color" content="#b00000" />
+  <link rel="icon" href="logo_cbmes.png" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  
 </head>
 <body>
   <header>
     <div class="header-content">
-      <img src="logo_cbmes.png" alt="Logo Esquerda" class="logo" />
+      <img src="logo_cbmes.png" alt="CBMES" class="logo left" />
       <div class="titulo-container">
         <h1>Centro de Atividades Técnicas</h1>
-        <h2>Plataforma de Indicadores e Desempenho</h2>
+        <h2>Painel de Relatórios e Indicadores</h2>
       </div>
-      <img src="logo_cbmes.png" alt="Logo Direita" class="logo" />
+      <img src="logo_cbmes.png" alt="CBMES" class="logo right" />
+      
+    </div>
+    <div class="subbar">
+      <div class="titulo-container" id="statusBar"></div>
+      <button id="themeToggle" class="btn secondary" title="Alternar tema">🌙</button>
     </div>
   </header>
 
   <main>
-    <div id="conteudo">
-      <label for="categoriaSelect"><strong>Setor do Centro de Atividades Técnicas:</strong></label>
-      <select id="categoriaSelect" onchange="filtrarRelatorios()">
-        <option value="">-- Todos os Setores --</option>
-        <option value="analiseprojeto">Análise de Projetos</option>
-        <option value="gerenciaadministrativa">Gerência Administrativa</option>
-        <option value="gerenciavistoria">Gerência de Vistoria</option>
-        <option value="normascadastro">Normas e Cadastros</option>
-        <option value="periciaincendio">Perícia de Incêndio</option>
-      </select>
+    <div class="container">
+      <!-- Área de filtros e busca -->
+      <section class="filters">
+        <select id="categoriaSelect" aria-label="Filtrar por setor">
+          <option value="">Todos os Setores</option>
+          <option value="analiseprojeto">Análise de Projetos</option>
+          <option value="gerenciaadministrativa">Gerência Administrativa</option>
+          <option value="gerenciavistoria">Gerência de Vistoria</option>
+          <option value="normascadastro">Normas e Cadastros</option>
+          <option value="periciaincendio">Perícia de Incêndio</option>
+        </select>
 
-      <input
-        type="text"
-        id="buscaInput"
-        placeholder="Buscar relatório por nome..."
-        oninput="filtrarRelatorios()"
-      />
+        <div class="input-icon">
+          <span class="i" aria-hidden="true">🔎</span>
+          <input type="text" id="buscaInput" placeholder="Buscar relatório por nome..." aria-label="Buscar relatório por nome" />
+        </div>
 
-      <div id="cards" class="cards-container"></div>
+        <div class="chips" role="listbox" aria-label="Filtros rápidos por setor">
+          <div class="chip active" data-chip="">Todos</div>
+          <div class="chip" data-chip="gerenciavistoria">Vistoria</div>
+          <div class="chip" data-chip="gerenciaadministrativa">Administrativa</div>
+          <div class="chip" data-chip="analiseprojeto">Projetos</div>
+          <div class="chip" data-chip="normascadastro">Normas</div>
+          <div class="chip" data-chip="periciaincendio">Perícia</div>
+        </div>
+      </section>
+
+      <!-- Lista de relatórios (cards) -->
+      <section id="conteudo" class="conteudo"></section>
+
+      <!-- Visualização do relatório (iframe) -->
+      <section id="relatorioView" class="relatorioView" style="display:none;">
+        <div class="viewerbar">
+          <button id="voltarBtn" class="btn secondary" onclick="voltarParaLista()">⬅ Retornar</button>
+          <div id="viewerTitle" class="viewerTitle">Relatório</div>
+        </div>
+        <div id="iframeWrap">
+          <div id="skeleton" class="skeleton" aria-hidden="true"></div>
+          <iframe id="relatorioIframe" title="Relatório" allowfullscreen></iframe>
+        </div>
+      </section>
     </div>
   </main>
 
-  <div id="relatorioView">
-    <button id="voltarBtn" onclick="voltarParaLista()">⬅ Retornar para a Plataforma</button>
-    <iframe id="relatorioIframe" allowfullscreen src=""></iframe>
-  </div>
-
   <footer>
-    Página desenvolvida por Miercio Martinelli Guimarães<br><span id="dataHora"></span>
+    <div id="dataHora"></div>
+    <div>Corpo de Bombeiros Militar do Espírito Santo — CAT</div>
   </footer>
 
   <script src="script.js"></script>
