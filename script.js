@@ -78,6 +78,14 @@ window.RELATORIOS = [
     setor_nome: "Perícia de Incêndio",
     url: "https://app.powerbi.com/view?r=eyJrIjoiM2FiMWIxMTMtYzIzOS00YTdiLTg0ZGItYzExNTBkYjYzZWU2IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+   {
+    nome: "Fila de Análise",
+    descricao: "Relatório mostrando uma visão da atual fila de análise de projeto, por analista e nível de projeto e etapa da análise",
+    setor: "analiseprojeto",
+    setor_nome: "Análise de Projetos",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiNWY4ZGQwMTktZDE4Zi00YjQwLWEzNmItNmFkODJlYjU5N2NmIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
 ];
 
 // Tenta usar o array global existente; se não houver, usa vazio
