@@ -86,6 +86,14 @@ window.RELATORIOS = [
     setor_nome: "Análise de Projetos",
     url: "https://app.powerbi.com/view?r=eyJrIjoiNWY4ZGQwMTktZDE4Zi00YjQwLWEzNmItNmFkODJlYjU5N2NmIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+  {
+    nome: "Cursos e Capacitações",
+    descricao: "Relatório demonstrativo da produção de cursos, eventos e capacitações promovidas pela Gereência de Vistoria",
+    setor: "gerenciavistoria",
+    setor_nome: "Gerência de Vistoria",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiMTU4NjVmZTQtOTBjYi00MGVhLWFjZDgtZjY5YzVhMGI5Njc5IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
 ];
 
 // Tenta usar o array global existente; se não houver, usa vazio
