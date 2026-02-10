@@ -94,6 +94,14 @@ window.RELATORIOS = [
     setor_nome: "Gerência de Vistoria",
     url: "https://app.powerbi.com/view?r=eyJrIjoiMTU4NjVmZTQtOTBjYi00MGVhLWFjZDgtZjY5YzVhMGI5Njc5IiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
   },
+
+  {
+    nome: "Quantidade de Vistoria, Análise e Perícia",
+    descricao: "Relatório contendo o resumo das quantidades de vistorias, análises de projetos e perícias de incêndio realizadas, por ANO/TRIMESTRE.",
+    setor: "gerenciaadministrativa",
+    setor_nome: "Gerência Administrativa",
+    url: "https://app.powerbi.com/view?r=eyJrIjoiMWZiMWU2NmQtYjc2YS00OWMxLWEwNzgtZDI3NTdmOTQ4MGJiIiwidCI6IjA4NjMzNjYwLTA0ZWUtNGFjNS1iMzcyLWMwZjY4YjgwOWRlMSJ9"
+  },
 ];
 
 // Tenta usar o array global existente; se não houver, usa vazio
