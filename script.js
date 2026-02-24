@@ -32,7 +32,7 @@ window.RELATORIOS = [
     url: "https://app.powerbi.com/view?r=eyJrIjoiYzIyZmVjMTMtNWU0OC00NGRiLTliNWItNDZjZjdjYzQ5OTZhIiwidCI6IjlmYjUxODkzLTdhM2UtNGM4NC05OGQ3LWY5ZWVmNTgwNWU3ZCJ9&pageName=92e90e3e9006b93b03e7"
   },
   {
-    nome: "Visão Geral Emissão Alvarás 2010 a 2025",
+    nome: "Visão Geral Emissão de Alvarás",
     descricao: "Relatório contendo uma visão geral da emissão dos alvarás entre os anos de 2010 a 2025, trazendo dados do tipo de alvará, tipo de emissão e tipo de processo",
     setor: "gerenciavistoria",
     setor_nome: "Gerência de Vistoria",
